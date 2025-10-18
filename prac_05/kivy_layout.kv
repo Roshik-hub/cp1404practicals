@@ -1,0 +1,34 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    # Top status label
+    Label:
+        text: app.status_text
+        font_size: 60
+        size_hint_y: 0.2
+        halign: 'center'
+        valign: 'middle'
+        text_size: self.size  # ensures text is centered properly
+
+    # Up/Down buttons
+    BoxLayout:
+        orientation: 'horizontal'
+        Button:
+            text: "Up"
+            on_press: app.handle_press(1)
+        Button:
+            text: "Down"
+            on_press: app.handle_press(-1)
+
+    # Dynamic name buttons will be added here
+    BoxLayout:
+        id: names_box
+
+    # New label at the bottom
+    Label:
+        text: "I did this :)"
+        size_hint_y: 0.1
+        font_size: 30
+        halign: 'center'
+        valign: 'middle'
+        text_size: self.size  # ensures text is centered properly
