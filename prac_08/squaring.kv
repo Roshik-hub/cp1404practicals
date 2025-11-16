@@ -1,0 +1,18 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    TextInput:
+        id: input_number
+        text: ''
+        multiline: False
+        hint_text: 'Enter a number'
+
+    Button:
+        text: 'Square'
+        on_press: app.handle_calculate()
+
+    Label:
+        text: app.result_text
+        color: (1, 0.75, 0.8, 1)  # pink

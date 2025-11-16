@@ -1,0 +1,29 @@
+BoxLayout:
+    orientation: 'vertical'
+    spacing: 10
+    padding: 20
+
+    TextInput:
+        id: input_name
+        hint_text: "Enter your name"
+        size_hint_y: None
+        height: 40
+
+    Button:
+        text: "Greet"
+        size_hint_y: None
+        height: 40
+        on_press: app.handle_greet()
+
+    Button:
+        text: "Clear"
+        size_hint_y: None
+        height: 40
+        on_press: app.handle_clear()
+
+    Label:
+        id: output_label
+        text: ""
+        color: (1, 1, 0, 1)  # yellow text
+        size_hint_y: None
+        height: 40

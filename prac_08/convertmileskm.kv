@@ -1,0 +1,22 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        spacing: 5
+        Button:
+            text: 'Up'
+            on_press: app.handle_increment(1)
+        Button:
+            text: 'Down'
+            on_press: app.handle_increment(-1)
+        TextInput:
+            id: input_miles
+            text: '0'
+            multiline: False
+            on_text: app.handle_convert()
+
+    Label:
+        text: app.km_text
+        color: (1, 1, 0, 1)
