@@ -1,28 +1,24 @@
-from flask import Flask
+from flask import Flask, render_template, request
+import wikipedia
 
 app = Flask(__name__)
-
-def celsius_to_fahrenheit(celsius):
-    """Convert Celsius to Fahrenheit."""
-    return (celsius * 9/5) + 32
+app.secret_key = "any_random_secret_key"
 
 @app.route('/')
-def hello_world():
-    return '<h1>Hello World :)</h1>'
+def home():
+    return render_template('search.html')  # The homepage with the form
 
-@app.route('/greet')
-@app.route('/greet/<name>')
-def greet(name=""):
-    return f"Hello {name}"
-
-@app.route('/convert/<celsius>')
-def convert(celsius):
+@app.route('/search', methods=['POST'])
+def search():
+    query = request.form.get('query')
     try:
-        celsius_value = float(celsius)
-        fahrenheit = celsius_to_fahrenheit(celsius_value)
-        return f"<h2>{celsius_value}°C is {fahrenheit:.2f}°F</h2>"
-    except ValueError:
-        return "<h2>Please enter a valid number.</h2>"
+        summary = wikipedia.summary(query, sentences=3)
+        title = wikipedia.page(query).title
+        return render_template('results.html', title=title, summary=summary)
+    except wikipedia.exceptions.DisambiguationError as e:
+        return f"Disambiguation Error! Options: {e.options}"
+    except wikipedia.exceptions.PageError:
+        return "Page not found. Try another search."
 
 if __name__ == '__main__':
     app.run(debug=True)

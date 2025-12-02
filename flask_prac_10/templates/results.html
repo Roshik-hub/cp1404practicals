@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}Results for {{ title }}{% endblock %}
+
+{% block content %}
+<h2>Results for "{{ title }}":</h2>
+<p>{{ summary }}</p>
+<a href="{{ url_for('home') }}">Back to search</a>
+{% endblock %}
