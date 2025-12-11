@@ -30,9 +30,4 @@ Through these practicals, I learned several key principles of writing clean, mai
 3. Run individual practical scripts (like `language_file_reader.py` or `project_management.py`) to see them in action.  
 4. Follow instructions in each practical folder to modify or extend the programs as required.
 
-## Submission
-Ensure your work follows the guidelines:
-- Commit and push your code regularly.  
-- Maintain proper formatting and clean code practices.  
-- Submit your Pull Request (PR) for each practical and review another student's PR as required.  
 
